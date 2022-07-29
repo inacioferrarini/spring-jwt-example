@@ -1,4 +1,4 @@
-package com.infoworld.jwt.security.controllers;
+package com.infoworld.jwt.security.controllers.api;
 
 import com.infoworld.jwt.security.models.User;
 import com.infoworld.jwt.security.services.authentication.UserAuthenticationService;

@@ -68,8 +68,10 @@ final class JWTTokenService implements Clock, TokenService {
                                      .requireIssuer(issuer)
                                      .setClock(this)
                                      .setSigningKey(secretKey);
-        return parseClaims(() -> parser.parseClaimsJws(token)
-                                       .getBody());
+        return parseClaims(
+                () -> parser.parseClaimsJws(token)
+                            .getBody()
+        );
     }
 
     @Override
