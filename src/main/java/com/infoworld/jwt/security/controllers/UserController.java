@@ -9,20 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/public")
-final class wUserController {
+//@RequestMapping("/public")
+final class UserController {
 
     @Autowired
     UserAuthenticationService authentication;
+
     @Autowired
     UserService users;
 
-    @GetMapping("/foo")
-    String foo() {
-        return "Foobar";
-    }
-
-    @PostMapping("/register")
+    @PostMapping("/api/security/register")
     String register(@RequestBody Map<String, String> body) {
         String username = body.get("username");
         String password = body.get("password");
@@ -42,7 +38,7 @@ final class wUserController {
                              );
     }
 
-    @PostMapping("/login")
+    @PostMapping("/api/security/login")
     String login(
             @RequestBody Map<String, String> body
     ) {

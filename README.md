@@ -6,10 +6,17 @@ A RESTful endpoint is provided as sample.
 
 # Project Structure
 
+http://localhost:8000/api/security/register
+
+http://localhost:8000/api/security/login
+
+
+
+
 ------------------------------------------------------------------------------
 -- Security: Register
 ------------------------------------------------------------------------------
-curl --location -i --request POST 'localhost:8080/public/register' \
+curl --location -i --request POST 'http://localhost:8080/api/security/register' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 -d '{"username":"Inacio","password":"123456"}'
@@ -17,7 +24,7 @@ curl --location -i --request POST 'localhost:8080/public/register' \
 ------------------------------------------------------------------------------
 -- Security: Login
 ------------------------------------------------------------------------------
-curl --location -i --request POST 'http://localhost:8080/public/login' \
+curl --location -i --request POST 'http://localhost:8080/api/security/login' \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 -d '{"username":"Inacio","password":"123456"}'
@@ -27,7 +34,7 @@ curl --location -i --request POST 'http://localhost:8080/public/login' \
 ------------------------------------------------------------------------------
 curl --location -i --request GET 'http://localhost:8080/protected' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSysxLyy_PL8pJUdJRykwsUbIyNDO1NDQ0tjSw0FEqLU4tykvMTQWq88xLTM7MV6oFADpQK3c4AAAA.OoLKhICX4oFRrIRvUdAKSXt0O4NBFluOTYbapeLKEQk'
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSysxLyy_PL8pJUdJRykwsUbIyNDO1NDQytTA11VEqLU4tykvMTQWq88xLTM7MV6oFAMQuZwY4AAAA.cr3EvXedIrH-M2TUR4CUqDkvd5SrSmrbfZl6iM_WN-E'
 
 # Usage
 

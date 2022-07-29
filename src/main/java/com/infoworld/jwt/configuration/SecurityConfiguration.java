@@ -1,4 +1,4 @@
-package com.infoworld.jwt.config;
+package com.infoworld.jwt.configuration;
 
 import com.infoworld.jwt.security.filters.TokenAuthenticationFilter;
 import com.infoworld.jwt.security.providers.TokenAuthenticationProvider;
@@ -26,17 +26,19 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private static final RequestMatcher PUBLIC_URLS = new OrRequestMatcher(
             new AntPathRequestMatcher("/"),
+            new AntPathRequestMatcher("/api/security/register"),
+            new AntPathRequestMatcher("/api/security/login"),
             new AntPathRequestMatcher("/public/**")
     );
     private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
 
     TokenAuthenticationProvider provider;
 
-    public SecurityConfig(final TokenAuthenticationProvider provider) {
+    public SecurityConfiguration(final TokenAuthenticationProvider provider) {
         this.provider = requireNonNull(provider);
     }
 
