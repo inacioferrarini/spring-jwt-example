@@ -12,17 +12,29 @@ import java.util.Optional;
 
 @Component
 public final class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
-  @Autowired
-  UserAuthenticationService auth;
 
-  @Override
-  protected void additionalAuthenticationChecks(final UserDetails d, final UsernamePasswordAuthenticationToken auth) {
-  }
+    @Autowired
+    UserAuthenticationService auth;
 
-  @Override
-  protected UserDetails retrieveUser(final String username, final UsernamePasswordAuthenticationToken authentication) {
-    final Object token = authentication.getCredentials();
-    return Optional.ofNullable(token).map(String::valueOf).flatMap(auth::findByToken)
-      .orElseThrow(() -> new UsernameNotFoundException("Couldn't find user: " + token));
-  }
+    @Override
+    protected void additionalAuthenticationChecks(
+            final UserDetails d,
+            final UsernamePasswordAuthenticationToken auth
+    ) {
+    }
+
+    @Override
+    protected UserDetails retrieveUser(
+            final String username,
+            final UsernamePasswordAuthenticationToken authentication
+    ) {
+        final Object token = authentication.getCredentials();
+        return Optional.ofNullable(token)
+                       .map(String::valueOf)
+                       .flatMap(auth::findByToken)
+                       .orElseThrow(
+                               () -> new UsernameNotFoundException("Couldn't find user: " + token)
+                       );
+    }
+
 }

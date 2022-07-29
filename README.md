@@ -29,8 +29,6 @@ curl --location -i --request GET 'http://localhost:8080/protected' \
 --header 'Accept: application/json' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSysxLyy_PL8pJUdJRykwsUbIyNDO1NDQ0tjSw0FEqLU4tykvMTQWq88xLTM7MV6oFADpQK3c4AAAA.OoLKhICX4oFRrIRvUdAKSXt0O4NBFluOTYbapeLKEQk'
 
-
-
 # Usage
 
 
