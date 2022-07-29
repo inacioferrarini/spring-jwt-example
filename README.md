@@ -6,9 +6,6 @@ A RESTful endpoint is provided as sample.
 
 # Project Structure
 
-http://localhost:8000/api/security/register
-
-http://localhost:8000/api/security/login
 
 
 
@@ -34,7 +31,7 @@ curl --location -i --request POST 'http://localhost:8080/api/security/login' \
 ------------------------------------------------------------------------------
 curl --location -i --request GET 'http://localhost:8080/protected' \
 --header 'Accept: application/json' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSysxLyy_PL8pJUdJRykwsUbIyNDO1NDQytTA11VEqLU4tykvMTQWq88xLTM7MV6oFAMQuZwY4AAAA.cr3EvXedIrH-M2TUR4CUqDkvd5SrSmrbfZl6iM_WN-E'
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSysxLyy_PL8pJUdJRykwsUbIyNDO1NDQyNzcz0lEqLU4tykvMTQWq88xLTM7MV6oFAC0EKGY4AAAA.PO_Vp2p1_T58mDhNeh2JuHvU9i6vnWy09IcV2HGqiV8'
 
 # Usage
 

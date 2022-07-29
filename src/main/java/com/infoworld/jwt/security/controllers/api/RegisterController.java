@@ -4,13 +4,14 @@ import com.infoworld.jwt.security.models.User;
 import com.infoworld.jwt.security.services.authentication.UserAuthenticationService;
 import com.infoworld.jwt.security.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
 @RestController
-//@RequestMapping("/public")
-final class UserController {
+public class RegisterController {
 
     @Autowired
     UserAuthenticationService authentication;
@@ -19,7 +20,7 @@ final class UserController {
     UserService users;
 
     @PostMapping("/api/security/register")
-    String register(@RequestBody Map<String, String> body) {
+    public String register(@RequestBody Map<String, String> body) {
         String username = body.get("username");
         String password = body.get("password");
         users.save(User.builder()
@@ -36,21 +37,6 @@ final class UserController {
                              .orElseThrow(
                                      () -> new RuntimeException("invalid login and/or password")
                              );
-    }
-
-    @PostMapping("/api/security/login")
-    String login(
-            @RequestBody Map<String, String> body
-    ) {
-        System.out.println("/login: " + body);
-        return authentication
-                .login(
-                        body.get("username"),
-                        body.get("password")
-                )
-                .orElseThrow(
-                        () -> new RuntimeException("invalid login and/or password")
-                );
     }
 
 }
